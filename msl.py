@@ -46,7 +46,7 @@ cbar.set_label('Mean Sea Level Pressure (hPa)')
 cbar.set_ticks(np.arange(np.floor(msl_hpa.min()), 1032, 4))
 
 # Adicionar título e legendas aos eixos
-plt.title('Mean Sea Level Pressure with 4 hPa Intervals (up to 1032 hPa)')
+plt.title('Mean Sea Level Pressure')
 ax.set_xlabel('Longitude')
 ax.set_ylabel('Latitude')
 

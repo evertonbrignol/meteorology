@@ -30,14 +30,14 @@ gl.ylabel_style = {'size': 10, 'color': 'black'}
 # Plotar a altura geopotencial a 500 hPa em decâmetros
 contour = ax.contourf(z500_dam.longitude, z500_dam.latitude, z500_dam, cmap='viridis', transform=ccrs.PlateCarree())
 cbar = plt.colorbar(contour, ax=ax, orientation='vertical', pad=0.05, aspect=40, shrink=0.8)
-cbar.set_label('Geopotential Height (500 hPa) [dam]')
+cbar.set_label('Geopotential Height (500 hPa)')
 
 # Adicionar isolinhas
 contour_lines = ax.contour(z500_dam.longitude, z500_dam.latitude, z500_dam, colors='black', transform=ccrs.PlateCarree(), linewidths=0.5)
-ax.clabel(contour_lines, inline=True, fontsize=8, fmt='%1.0f dam')
+ax.clabel(contour_lines, inline=True, fontsize=8, fmt='%1.0f ')
 
 # Adicionar título e legendas aos eixos
-plt.title('Geopotential Height at 500 hPa [dam]')
+plt.title('Geopotential Height at 500 hPa')
 ax.set_xlabel('Longitude')
 ax.set_ylabel('Latitude')
 
