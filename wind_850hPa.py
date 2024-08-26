@@ -31,10 +31,10 @@ magnitude_plot = ax.pcolormesh(u850.longitude, u850.latitude, wind_speed_850, cm
 cbar = plt.colorbar(magnitude_plot, ax=ax, orientation='vertical', pad=0.05, aspect=40, shrink=0.8)
 cbar.set_label('Wind Speed (m/s)')
 
-# Adicionar vetores de vento usando quiver
+# Adicionar vetores de vento usando quiver com magnitude aumentada
 skip = 10  # Reduzir a quantidade de vetores para melhorar a visualização
 ax.quiver(u850.longitude[::skip], u850.latitude[::skip], u850[::skip, ::skip], v850[::skip, ::skip], 
-          wind_speed_850[::skip, ::skip], transform=ccrs.PlateCarree(), scale=300, scale_units='inches')
+          wind_speed_850[::skip, ::skip], transform=ccrs.PlateCarree(), scale=200, scale_units='inches')
 
 # Adicionar título e legendas aos eixos
 plt.title('Wind Vectors at 850 hPa')

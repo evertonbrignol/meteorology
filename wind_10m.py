@@ -37,14 +37,15 @@ gl.ylabel_style = {'size': 10, 'color': 'black'}
 # Plotar a magnitude do vento com as cores personalizadas
 contourf = ax.contourf(u10.longitude, u10.latitude, wind_speed, levels=levels, cmap=cmap, transform=ccrs.PlateCarree())
 
-# Adicionar os vetores de direção do vento
+# Adicionar os vetores de direção do vento com magnitude aumentada
 skip = (slice(None, None, 5), slice(None, None, 5))  # Pular alguns vetores para clareza
-ax.quiver(u10.longitude.values[skip[1]], u10.latitude.values[skip[0]], u10.values[skip], v10.values[skip], transform=ccrs.PlateCarree(), color='black', scale=700)
+ax.quiver(u10.longitude.values[skip[1]], u10.latitude.values[skip[0]], u10.values[skip], v10.values[skip],
+          transform=ccrs.PlateCarree(), color='black', scale=300)  # Reduzi o scale de 700 para 300 para aumentar os vetores
 
-# Adicionar uma barra de cores na lateral direita
+# Adicionar uma barra de cores na lateral direita com números inteiros de 2 em 2
 cbar = plt.colorbar(contourf, orientation='vertical', pad=0.05, aspect=40, shrink=0.8)
 cbar.set_label('Wind Speed (m/s)')
-cbar.set_ticks(np.linspace(0, np.nanmax(wind_speed), num=10))
+cbar.set_ticks(np.arange(0, np.ceil(np.nanmax(wind_speed))+1, 2))
 
 # Adicionar título e legendas aos eixos
 plt.title('Wind Direction and Magnitude at 10m')
